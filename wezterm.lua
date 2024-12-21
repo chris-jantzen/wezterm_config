@@ -8,17 +8,24 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "Tokyo Night"
+-- config.color_scheme = "catppuccin-frappe"
 
-config.font = wezterm.font_with_fallback({
-	{ family = "JetBrainsMono Nerd Font", scale = 1.3 },
-	{ family = "Hack Nerd Font Mono", scale = 1.3 },
-})
+-- config.font = wezterm.font_with_fallback({
+-- 	{ family = "Hack Nerd Font Mono", scale = 1.5 },
+-- 	{ family = "JetBrainsMono Nerd Font", scale = 1.3 },
+-- })
 
-config.window_background_opacity = 0.9
+config.font = wezterm.font("Hack Nerd Font Mono")
+config.font_size = 19
+
+config.window_background_opacity = 1.0
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.window_close_confirmation = "AlwaysPrompt"
+config.window_close_confirmation = "NeverPrompt"
 config.scrollback_lines = 3000
 config.default_workspace = "main"
+
+config.initial_cols = 130
+config.initial_rows = 40
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
@@ -175,15 +182,11 @@ wezterm.on("update-status", function(window, pane)
 	}))
 end)
 
---[[ Appearance setting for when I need to take pretty screenshots
-config.enable_tab_bar = false
 config.window_padding = {
-  left = '0.5cell',
-  right = '0.5cell',
-  top = '0.5cell',
-  bottom = '0cell',
-
+	left = "0.5cell",
+	right = "0.5cell",
+	top = "0.5cell",
+	bottom = "0cell",
 }
---]]
 
 return config
